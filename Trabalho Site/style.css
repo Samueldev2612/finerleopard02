@@ -1,0 +1,223 @@
+/* Reset básico para remover margens e paddings padrão e ajustar box-sizing */
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box; /* Inclui bordas e padding na largura/altura */
+}
+
+/* html e body ocupam toda a altura da tela, definem fonte e fundo */
+html, body {
+  height: 100%;
+  font-family: Arial, sans-serif; /* Fonte padrão */
+  background-color: #F2F0EF;
+  display: flex; /* Usa flexbox para layout */
+  flex-direction: column; /* Elementos em coluna */
+}
+
+/* O main (conteúdo principal) ocupa todo o espaço disponível entre header e footer */
+main {
+  flex: 1; /* Expande para preencher espaço */
+  text-align: center; /* Centraliza textos */
+  padding: 20px; /* Espaçamento interno */
+}
+
+/* Cabeçalho com flexbox para logo e texto */
+header {
+  display: flex;
+  justify-content: space-between; /* Espaço entre logo e texto */
+  align-items: center; /* Alinha verticalmente ao centro */
+  background-color: black; /* Fundo preto */
+  color: white; /* Texto branco */
+  padding: 20px 40px; /* Espaçamento */
+}
+
+/* Container da logo no header alinhado verticalmente */
+.logo-container {
+  display: flex;
+  align-items: center;
+}
+
+/* Estilo da imagem da logo no cabeçalho */
+.header-logo {
+  height: 100px; /* Altura fixa */
+  margin-right: 15px; /* Espaço à direita */
+}
+
+/* Texto "STUDIOS" com fonte especial e animação de brilho */
+.studio-text span {
+  color: #7a4a9d; /* Roxo */
+  font-size: 30px;
+  font-weight: bold;
+  text-transform: uppercase; /* Letras maiúsculas */
+  font-family: 'Press Start 2P', cursive, Arial, sans-serif; /* Fonte importada */
+  animation: textGlow 4s ease-in-out infinite; /* Animação de brilho */
+}
+
+/* Define a animação textGlow para o efeito de brilho */
+@keyframes textGlow {
+  0%, 100% {
+    text-shadow: 0 0 5px #6567e9, 0 0 10px #6567e9, 0 0 15px #6567e9;
+  }
+  50% {
+    text-shadow: 0 0 10px #fff, 0 0 20px #fff, 0 0 30px #fff;
+  }
+}
+
+/* Grid que organiza os cards lado a lado e responsivamente */
+.card-grid {
+  display: flex;
+  flex-wrap: wrap; /* Permite quebra para nova linha */
+  gap: 20px; /* Espaço entre cards */
+  justify-content: center; /* Centraliza cards horizontalmente */
+  max-width: 1200px; /* Largura máxima */
+  margin: 40px auto; /* Espaço vertical e centralizado */
+  padding: 0 20px; /* Espaçamento lateral */
+}
+
+/* Estilo de cada card */
+.info-card {
+  position: relative;
+  width: 360px; /* Largura fixa */
+  height: 200px; /* Altura fixa */
+  background-size: cover; /* Cobre todo o espaço */
+  background-position: center; /* Centraliza imagem */
+  border-radius: 16px; /* Bordas arredondadas */
+  box-shadow: 0 8px 20px rgba(0, 0, 0, 0.2); /* Sombra suave */
+  overflow: hidden; /* Evita conteúdo extra fora do card */
+  color: white; /* Texto branco */
+  display: flex;
+  align-items: flex-end; /* Alinha conteúdo ao fundo */
+  cursor: pointer; /* Cursor mãozinha ao passar */
+  transition: transform 0.3s ease; /* Transição suave */
+}
+
+/* Aumenta o card ao passar o mouse */
+.info-card:hover {
+  transform: scale(1.03);
+}
+
+/* Fundo do conteúdo dentro do card com gradiente escurecido */
+.card-content {
+  background: linear-gradient(to top, rgba(0,0,0,0.7), transparent);
+  padding: 20px;
+  width: 100%;
+  text-align: left; /* Texto alinhado à esquerda */
+}
+
+/* Título do card */
+.card-content h2 {
+  font-size: 20px;
+  margin-bottom: 8px;
+}
+
+/* Parágrafo do card */
+.card-content p {
+  font-size: 14px;
+  margin-bottom: 12px;
+}
+
+/* Parágrafo descritivo fora dos cards */
+.description {
+  margin: 20px auto;
+  max-width: 600px;
+  font-size: 20px;
+  font-style: italic;
+  color: black;
+  line-height: 1.4; /* Espaçamento entre linhas */
+}
+
+/* Container para o poster e botão na parte inferior do main */
+.poster-container {
+  display: flex;
+  justify-content: flex-end; /* Alinha o conteúdo à direita */
+  align-items: center; /* Alinha verticalmente */
+  margin-top: 2rem; /* Espaço acima */
+  padding: 1rem 20px; /* Espaçamento interno lateral */
+  max-width: 1200px; /* Limita a largura */
+  margin-left: auto;
+  margin-right: auto; /* Centraliza horizontalmente */
+}
+
+/* Estilo da imagem do poster */
+.poster-container img {
+  width: 150px;
+  height: auto;
+  border-radius: 8px; /* Bordas arredondadas */
+  box-shadow: 0 4px 12px rgba(0,0,0,0.2); /* Sombra suave */
+  margin-right: 1rem; /* Espaço à direita do poster */
+}
+
+/* Botão "Em breve" */
+.poster-container button {
+  padding: 0.5rem 1rem;
+  font-size: 1rem;
+  background-color: #76787a; /* Azul */
+  color: black;
+  border: none;
+  border-radius: 5px;
+  cursor: pointer;
+}
+
+/* Rodapé fixo na parte inferior da tela */
+footer {
+  position: fixed; /* Fixa no lugar */
+  bottom: 0;
+  left: 0;
+  width: 100%;
+  height: 60px;
+  background-color: black;
+  color: white;
+  text-align: center;
+  line-height: 60px; /* Centraliza verticalmente o texto */
+  box-sizing: border-box;
+  z-index: 1000; /* Fica acima de outros elementos */
+}
+
+/* Espaço no body para não ficar atrás do rodapé fixo */
+body {
+  padding-bottom: 60px; /* Igual à altura do footer */
+}
+
+
+
+
+
+.poster-area {
+  display: flex;
+  justify-content: flex-end;
+  align-items: center;
+  margin-top: 2rem;
+  padding: 1rem;
+  gap: 1rem;
+}
+
+/* Pôster com tamanho fixo e animação suave ao passar o mouse */
+.poster-img {
+  width: 150px;
+  height: auto;
+  border-radius: 8px;
+  box-shadow: 0 4px 12px rgba(0, 0, 0, 0.2);
+  transition: transform 0.3s ease;
+}
+
+.poster-img:hover {
+  transform: scale(1.03);
+}
+
+/* Botão "Em breve" com mesmo efeito dos cards */
+.em-breve-btn {
+  padding: 0.5rem 1rem;
+  font-size: 1rem;
+  background-color: #b4aeae;
+  color: black;
+  border: none;
+  border-radius: 5px;
+  cursor: pointer;
+  font-weight: bold;
+  transition: transform 0.3s ease, box-shadow 0.3s ease;
+}
+
+.em-breve-btn:hover {
+  transform: scale(1.03);
+  box-shadow: 0 8px 20px rgba(0, 0, 0, 0.3);
+}

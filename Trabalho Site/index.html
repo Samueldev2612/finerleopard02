@@ -1,0 +1,113 @@
+<!DOCTYPE html>
+<html lang="pt-br">
+<head>
+  <!-- Define a codificação de caracteres para UTF-8, que suporta acentuação -->
+  <meta charset="UTF-8" />
+  
+  <!-- Torna a página responsiva, ajustando a largura para a tela do dispositivo -->
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  
+  <!-- Define o título da página que aparece na aba do navegador -->
+  <title>B.S.K STUDIO</title>
+
+  <!-- Importa a fonte 'Press Start 2P' do Google Fonts para uso na página -->
+  <link href="https://fonts.googleapis.com/css2?family=Press+Start+2P&display=swap" rel="stylesheet" />
+  
+  <!-- Link para o arquivo CSS externo que contém os estilos da página -->
+  <link rel="stylesheet" href="style.css" />
+</head>
+
+<body>
+
+  <!-- Cabeçalho da página -->
+  <header>
+    <!-- Container para a logo, alinhado à esquerda -->
+    <div class="logo-container">
+      <!-- Imagem da logo pequena, com alt para acessibilidade -->
+      <img src="imagens/IMG-20250513-WA0030.jpg" alt="Logo pequena" class="header-logo" />
+    </div>
+    <!-- Texto "STUDIOS" com efeito de brilho, alinhado à direita -->
+    <div class="studio-text"><span>STUDIOS</span></div>
+  </header>
+
+  <!-- Conteúdo principal da página -->
+  <main>
+    <!-- Grid que contém os cards informativos -->
+    <div class="card-grid">
+      <!-- Card com imagem de fundo e texto -->
+      <div class="info-card" style="background-image: url('imagens/familia.jpg')">
+        <div class="card-content">
+          <h2>Diversão</h2>
+          <p>para toda família</p>
+        </div>
+      </div>
+
+      <!-- Segundo card -->
+      <div class="info-card" style="background-image: url('imagens/imagem personagens.jpg')">
+        <div class="card-content">
+          <h2>Personagens</h2>
+          <p>Animados</p>
+        </div>
+      </div>
+
+      <!-- Terceiro card -->
+      <div class="info-card" style="background-image: url('imagens/Tela de fundo.jpg')">
+        <div class="card-content">
+          <h2>O jogo</h2>
+          <p>Feito pra você</p>
+        </div>
+      </div>
+    </div>
+
+    <!-- Parágrafo descritivo sobre a empresa -->
+    <p class="description">
+      A B.S.K é uma empresa de jogos 2D voltada para todas as idades. Com jogabilidade simples e temas divertidos, ela aposta na acessibilidade e na diversão para crianças e adultos.
+    </p>
+
+    <!-- Container para o poster do jogo e o botão -->
+
+<div class="poster-area">
+  <img src="imagens/poster do jogo.png" alt="Poster do jogo" class="poster-img">
+  <button class="em-breve-btn">Em breve</button>
+</div>
+
+  </main>
+
+  <!-- Rodapé fixo na parte inferior da página -->
+  <footer>
+    <div class="footer-content">
+      <!-- Texto de direitos autorais -->
+      <p>&copy; 2025 B.S.K STUDIO. Todos os direitos reservados.</p>
+    </div>
+  </footer>
+
+  <!-- Script JavaScript para controlar um carrossel simples -->
+  <script>
+    // Índice do card atualmente exibido
+    let currentCard = 0;
+    // Seleciona todos os cards (com classe info-card)
+    const cards = document.querySelectorAll('.info-card');
+
+    // Função para mostrar apenas o card no índice passado
+    function showCard(index) {
+      cards.forEach((card, i) => {
+        // Adiciona classe 'active' só para o card correspondente ao índice
+        card.classList.toggle('active', i === index);
+      });
+    }
+
+    // Função para mudar o card atual para frente ou para trás
+    function changeCard(direction) {
+      currentCard += direction;
+      // Volta para o primeiro card se passar do último
+      if (currentCard >= cards.length) currentCard = 0;
+      // Vai para o último card se passar do primeiro para trás
+      if (currentCard < 0) currentCard = cards.length - 1;
+      showCard(currentCard);
+    }
+
+    // Mostra o primeiro card quando a página carrega
+    showCard(currentCard);
+  </script>
+</body>
+</html>
